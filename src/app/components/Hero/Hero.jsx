@@ -11,19 +11,19 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delay between each text element
-        delayChildren: 0.3,   // Initial delay before starting
+        staggerChildren: 0.08, // Delay between each text element
+        delayChildren: 0.1,   // Initial delay before starting
       },
     },
   };
 
   // Individual item variants
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 18 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.8, ease: "easeOut" } 
+      transition: { duration: 0.5, ease: "easeOut" } 
     },
   };
 
