@@ -32,7 +32,7 @@ export default function Hero() {
       {/* Background stays the same */}
       <div className={styles.bg}>
         <img
-          src="/hero.jpg"
+          src="/hero2.jpg"
           alt="Laminate interior"
         />
         <div className={styles.acrylicOverlay} />

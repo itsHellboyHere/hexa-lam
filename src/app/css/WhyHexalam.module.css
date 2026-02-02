@@ -1,0 +1,154 @@
+/* ================= SECTION ================= */
+.section {
+  background: #0c0a09;
+  padding: clamp(96px, 10vw, 160px) 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================= HEADER ================= */
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ================= CARD ================= */
+.card {
+  position: relative;
+  padding: 48px 40px;
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+
+/* ================= ICON ================= */
+.iconWrap {
+  position: relative;
+  overflow: hidden; /* important for shine */
+
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--accent);
+  background: linear-gradient(
+    135deg,
+    rgba(245,158,11,0.25),
+    rgba(245,158,11,0.05)
+  );
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+.iconWrap::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -120%;
+  width: 60%;
+  height: 220%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.45),
+    transparent
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: left 0.6s ease, opacity 0.3s ease;
+}
+.iconWrap svg {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .iconWrap svg {
+  transform: scale(1.05);
+}
+
+.card:hover .iconWrap {
+  transform: translateY(-2px) scale(1.1) rotate(-2deg);
+  box-shadow:
+    0 0 0 6px rgba(245,158,11,0.08),
+    0 16px 40px rgba(245,158,11,0.25);
+}
+
+.card:hover .iconWrap::after {
+  left: 140%;
+  opacity: 1;
+}
+
+/* ================= TEXT ================= */
+.card h3 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+}
