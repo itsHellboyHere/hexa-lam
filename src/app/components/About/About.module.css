@@ -388,6 +388,14 @@
   .floatingSheet {
     transform-style: flat;
   }
+   .aboutInfo {
+    margin-bottom: 80px;
+    padding: 0 12px;
+  }
+
+  .aboutInfo p {
+    font-size: 16px;
+  }
 }
 @media (max-width: 640px) {
   .trustSection {
@@ -449,3 +457,53 @@
 .floatingSheet {
   will-change: transform;
 }
+
+/* ================= ABOUT INFO (WHO WE ARE) ================= */
+
+.aboutInfo {
+  max-width: 760px;
+  margin: 0 auto 120px;
+  text-align: center;
+}
+
+.aboutInfo h3 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.aboutInfo p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #a8a29e;
+}
+
+/* Slight visual separation from story */
+.aboutInfo::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  margin: 0 auto 24px;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* ================= CTA POLISH ================= */
+
+.aboutCTA {
+  position: relative;
+}
+
+.aboutCTA::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+

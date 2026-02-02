@@ -11,7 +11,8 @@ import styles from "./About.module.css";
 ================================ */
 function useInView(ref) {
   useEffect(() => {
-    if (!ref.current) return;
+    const el = ref.current;
+    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,20 +21,22 @@ function useInView(ref) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.25 }
     );
 
-    observer.observe(ref.current);
+    observer.observe(el);
     return () => observer.disconnect();
-  }, [ref]);
+  }, []);
 }
 
 export default function About() {
-  const textRef = useRef(null);
+  const storyRef = useRef(null);
+  const aboutRef = useRef(null);
   const trustRef = useRef(null);
   const ctaRef = useRef(null);
 
-  useInView(textRef);
+  useInView(storyRef);
+  useInView(aboutRef);
   useInView(trustRef);
   useInView(ctaRef);
 
@@ -43,7 +46,7 @@ export default function About() {
 
         {/* ================= STORY ================= */}
         <div className={styles.storyGrid}>
-          <div ref={textRef} className={styles.reveal}>
+          <div ref={storyRef} className={styles.reveal}>
             <span className={styles.kicker}>Our Philosophy</span>
 
             <h2 className={styles.title}>
@@ -54,8 +57,6 @@ export default function About() {
               HexaLam was created to challenge outdated laminate standards.
               We focus exclusively on high-gloss acrylic surfaces engineered
               using contemporary pressing techniques and strict quality control.
-              The result is cleaner finishes, improved colour stability,
-              and long-term performance for modern interiors.
             </p>
           </div>
 
@@ -66,7 +67,7 @@ export default function About() {
               animate={{
                 rotateY: [0, 15, 0],
                 rotateX: [8, -8, 8],
-                y: [0, -15, 0],
+                y: [0, -14, 0],
               }}
               transition={{
                 duration: 8,
@@ -81,12 +82,27 @@ export default function About() {
                   <div className={styles.surfaceGrain} />
                 </div>
 
-                <img src="/logo.png" alt="HexaLam" className={styles.logoBadge} />
+                <img
+                  src="/logo.png"
+                  alt="HexaLam"
+                  className={styles.logoBadge}
+                />
+
                 <div className={styles.glossReflect} />
                 <div className={styles.edgeHighlight} />
               </div>
             </motion.div>
           </div>
+        </div>
+
+        {/* ================= WHO WE ARE ================= */}
+        <div ref={aboutRef} className={`${styles.aboutInfo} ${styles.reveal}`}>
+          <h3>Who We Are</h3>
+          <p>
+            HexaLam is a surface solutions brand built for architects,
+            interior designers, and builders who demand consistency,
+            precision, and long-term performance — not just visual appeal.
+          </p>
         </div>
 
         {/* ================= TRUST ================= */}
@@ -100,17 +116,17 @@ export default function About() {
             <TrustCard
               icon={<Factory size={22} />}
               title="Precision Manufacturing"
-              text="Modern bonding processes ensure consistent gloss, flatness, and surface clarity."
+              text="Controlled pressing and calibrated bonding ensure uniform gloss and flatness."
             />
             <TrustCard
               icon={<ShieldCheck size={22} />}
               title="6H Surface Hardness"
-              text="Engineered to resist micro-scratches from daily use."
+              text="Designed to resist micro-scratches from daily interior use."
             />
             <TrustCard
               icon={<Zap size={22} />}
               title="UV Stable Polymers"
-              text="Formulated to maintain colour consistency in sunlit spaces."
+              text="Maintains colour clarity even in sun-exposed spaces."
             />
           </div>
         </div>
