@@ -2,6 +2,11 @@
 .section {
   background: #0c0a09;
   padding: clamp(96px, 10vw, 160px) 0;
+  /* position: relative;
+  z-index: 2; */
+    /* box-shadow: 0 -40px 100px rgba(0,0,0,0.5); */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); 
+  padding: 120px 0;
 }
 
 .container {

@@ -2,7 +2,8 @@
 .section {
   background: #0c0a09;
   padding: clamp(60px, 9vw, 180px) 0;
-
+/* position: relative;
+z-index: 2; */
 }
 
 /* ================= CONTAINER ================= */

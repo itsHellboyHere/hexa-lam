@@ -11,13 +11,14 @@ export default function HomePage(){
     // <main>HexaLam</main>
     <>
     <Hero/>
-    
+<div style={{ position: 'relative', zIndex: 2, background: '#0c0a09' }}>
     <WhyHexaLam/>
     <StatsStrip/>
     <ProductHighlight/>
     <ApplicationsSticky/>
     <HowItsMade/>
     <PrimaryCTA/>
+  </div>
     </>
   )
 }

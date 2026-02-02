@@ -1,6 +1,8 @@
 .section {
   background: #0c0a09;
   padding: clamp(96px, 10vw, 160px) 0;
+  position: relative;
+  z-index: 2;
 }
 
 .wrapper {
