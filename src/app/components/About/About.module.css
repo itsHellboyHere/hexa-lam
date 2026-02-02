@@ -287,7 +287,11 @@
   color: #a8a29e;
   line-height: 1.6;
 }
-
+.card,
+.sheetFace,
+.glossReflect {
+  will-change: transform;
+}
 /* Adjusting the trust section container to match the card quality */
 .trustSection {
   background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
@@ -380,7 +384,11 @@
     height: 300px;
   }
 }
-
+@media (max-width: 768px) {
+  .floatingSheet {
+    transform-style: flat;
+  }
+}
 @media (max-width: 640px) {
   .trustSection {
     padding: 40px 20px;
@@ -402,4 +410,42 @@
     animation: none !important;
     transform: none !important;
   }
+}
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+  }
+}
+
+
+
+
+/* ================= REVEAL SYSTEM ================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.inView {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional stagger feel */
+.reveal .kicker { transition-delay: 0.05s; }
+.reveal .title { transition-delay: 0.12s; }
+.reveal .desc  { transition-delay: 0.2s; }
+
+
+
+/* Performance */
+.card,
+.sheetFace,
+.glossReflect,
+.floatingSheet {
+  will-change: transform;
 }
