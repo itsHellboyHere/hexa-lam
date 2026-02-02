@@ -15,7 +15,7 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata = {
-  title: "Hexa Lam | Architectural Laminates",
+  title: "Hexa Lam | Laminates",
   description:
     "Premium acrylic laminate surfaces engineered for modern architecture.",
 };

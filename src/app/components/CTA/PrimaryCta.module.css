@@ -1,0 +1,148 @@
+/* ================= SECTION ================= */
+.section {
+  background: #0c0a09;
+  padding: clamp(120px, 12vw, 180px) 0;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================= CTA BOX ================= */
+.box {
+  position: relative;
+  text-align: center;
+
+  padding: clamp(64px, 8vw, 96px);
+  border-radius: 36px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* ================= TEXT ================= */
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.title span {
+  color: var(--accent);
+}
+
+.desc {
+  max-width: 620px;
+  margin: 0 auto 40px;
+
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Primary CTA */
+.primaryBtn {
+  position: relative;
+  overflow: hidden;
+
+  padding: 15px 36px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, var(--accent), #f7b733);
+  color: #000;
+  font-weight: 700;
+
+  box-shadow:
+    0 12px 30px rgba(245,158,11,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Acrylic shine */
+.primaryBtn::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -40%;
+  width: 20%;
+  height: 220%;
+  background: rgba(255,255,255,0.45);
+  transform: rotate(25deg);
+  transition: left 0.6s ease;
+}
+
+.primaryBtn:hover::after {
+  left: 120%;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(245,158,11,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+/* Secondary CTA */
+.secondaryBtn {
+  padding: 15px 34px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.25);
+
+  color: #fff;
+  font-weight: 600;
+
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

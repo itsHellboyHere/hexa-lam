@@ -66,7 +66,7 @@ export default function Hero() {
               Explore Laminates
             </Link>
             <Link href="/contact-us" className={styles.secondaryBtn}>
-              Technical Specifications
+              Get Consultation
             </Link>
           </motion.div>
 
