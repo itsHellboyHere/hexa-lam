@@ -1,7 +1,8 @@
 /* ================= SECTION ================= */
 .section {
   background: #0c0a09;
-  padding: clamp(120px, 12vw, 180px) 0;
+  padding: clamp(60px, 9vw, 180px) 0;
+
 }
 
 /* ================= CONTAINER ================= */

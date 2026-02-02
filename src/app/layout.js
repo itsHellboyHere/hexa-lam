@@ -1,6 +1,7 @@
 import { Noto_Sans, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 const notoSans = Noto_Sans({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       <body className={`${notoSans.variable} ${robotoMono.variable}`}>
        <Navbar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

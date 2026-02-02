@@ -1,0 +1,84 @@
+.socialList {
+  display: flex;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.iconItem {
+  position: relative;
+}
+
+.iconItem a {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  overflow: hidden;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* ✅ Lucide icons fix */
+.iconItem a svg {
+  z-index: 2;
+  pointer-events: none;
+  stroke-width: 1.8;
+}
+
+/* Fill animation */
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.iconItem a:hover .fill {
+  transform: scaleY(1);
+}
+
+.iconItem a:hover {
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  background: #111;
+  color: #fff;
+  border-radius: 6px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.iconItem:hover .tooltip {
+  opacity: 1;
+}
+
+.iconItem a[href*="wa.me"]:hover .fill {
+  background: #25D366;
+}
