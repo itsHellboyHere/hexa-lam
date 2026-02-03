@@ -1,0 +1,150 @@
+.wrapper {
+  background: var(--bg-main);
+  height: calc(100vh - 72px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle background grain to match laminate theme */
+.wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+/* ================= VISUAL 404 ================= */
+.visual {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.glitch404 {
+  font-size: clamp(8rem, 20vw, 15rem);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+}
+
+/* Simulates a floating laminate strip */
+.sheetDecoration {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 8px;
+  background: var(--accent-gradient);
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+}
+
+/* ================= CONTENT ================= */
+.kicker {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.title span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.desc {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.primaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: var(--accent-gradient);
+  color: #000;
+  font-weight: 700;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.3);
+}
+
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #fff;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.secondaryBtn:hover {
+  background: #f9fafb;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

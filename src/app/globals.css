@@ -55,10 +55,14 @@ a {
   height: calc(100vh - var(--navbar-height));
 }
 
-/* Helper for the new Yellow Gradient Text if needed */
+
 .text-gradient-yellow {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }
