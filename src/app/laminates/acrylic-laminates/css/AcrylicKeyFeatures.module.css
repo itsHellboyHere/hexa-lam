@@ -1,0 +1,125 @@
+.section {
+  background: var(--bg-main);
+  padding: clamp(100px, 12vw, 180px) 0;
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(60px, 8vw, 100px);
+  align-items: start;
+}
+
+/* LEFT: STICKY COLUMN */
+.sticky {
+  position: sticky;
+  top: calc(var(--navbar-height) + 60px);
+  align-self: flex-start;
+}
+
+.kicker {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.title span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stickyDesc {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* RIGHT: LIST COLUMN */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.item {
+  opacity: 0.15;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.iconBox {
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+}
+
+.item h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.item p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  
+  .sticky {
+    position: static;
+    text-align: center;
+  }
+  
+  .list {
+    gap: 60px;
+  }
+
+  .iconBox {
+    margin: 0 auto 24px;
+  }
+
+  .item {
+    text-align: center;
+  }
+}

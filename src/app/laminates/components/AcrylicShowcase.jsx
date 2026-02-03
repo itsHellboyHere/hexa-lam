@@ -9,7 +9,7 @@ export default function AcrylicShowcase() {
       <div className={styles.inner}>
 
         {/* IMAGE */}
-        <Link href="/laminates/acrylic" className={styles.imageWrap}>
+        <Link href="/laminates/acrylic-laminates" className={styles.imageWrap}>
           <div className={styles.image}>
             <span className={styles.imageCta}>
               Explore Acrylic →

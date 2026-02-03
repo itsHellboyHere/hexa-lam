@@ -1,0 +1,53 @@
+.filterBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  position: relative;
+  padding: 10px 22px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.btnText {
+  position: relative;
+  z-index: 2;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.filterBtn.active .btnText {
+  color: #000;
+}
+
+.filterBtn.active {
+  border-color: transparent;
+}
+
+.activeHighlight {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  border-radius: 100px;
+  z-index: 1;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+}
+
+.filterBtn:hover:not(.active) {
+  border-color: var(--accent);
+}
+
+.filterBtn:hover:not(.active) .btnText {
+  color: var(--accent);
+}

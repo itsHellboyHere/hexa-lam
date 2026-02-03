@@ -37,7 +37,7 @@ export default function Navbar() {
               </span>
 
               <div className={styles.dropdown}>
-                <Link href="/acrylic-laminates">Acrylic Laminates</Link>
+                <Link href="/laminates/acrylic-laminates">Acrylic Laminates</Link>
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export default function Navbar() {
   {/* Sub-item */}
   {mobileDropdownOpen && (
     <Link
-      href="/acrylic-laminates"
+      href="/laminates/acrylic-laminates"
       className={styles.subLink}
       onClick={() => setMenuOpen(false)}
     >

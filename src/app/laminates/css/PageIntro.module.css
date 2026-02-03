@@ -1,53 +1,94 @@
 .section {
   position: relative;
   z-index: 2;
-    /* margin-top: -80px; */
-  padding-top: 160px;
-  margin-top: -160px;
-  padding: 140px 0 88px;
-
   background: var(--bg-main);
-  box-shadow: 0 -40px 100px rgba(0,0,0,0.5);
-}
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 160px;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
+  /* Use a much softer shadow for the Luxe White theme */
+  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.03);
+  padding: 120px 0;
+  margin-top: -100px; /* Overlaps the Hero */
+  border-radius: 40px 40px 0 0; /* Softens the transition from Hero */
 }
 
-.inner {
-  max-width: 760px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 36px;
-  text-align: center;
+  padding: 0 24px;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* LEFT COLUMN */
 .kicker {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.24em;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
-  opacity: 0.75;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-.inner p {
-  font-size: 17px;
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.title span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+/* RIGHT COLUMN */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.lead strong {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.secondary {
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--text-muted);
+  border-left: 2px solid var(--border-soft);
+  padding-left: 24px;
 }
 
-.section::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 1px;
-  background: rgba(255,255,255,0.08);
-  margin: 72px auto 0;
+/* MOBILE */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .section {
+    margin-top: -60px;
+    padding: 80px 0;
+  }
+
+  .secondary {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 24px;
+  }
 }

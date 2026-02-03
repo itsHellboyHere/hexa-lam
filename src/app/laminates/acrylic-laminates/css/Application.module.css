@@ -1,0 +1,19 @@
+.section {
+  background: var(--bg-soft);
+  padding: 80px 24px;
+}
+
+.row {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.item {
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

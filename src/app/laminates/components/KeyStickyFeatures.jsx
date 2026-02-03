@@ -12,12 +12,12 @@ const FEATURES = [
   },
   {
     icon: ShieldCheck,
-    title: "6H Surface Hardness",
+    title: "Scratch Resistant",
     desc: "Resistant to micro-scratches from daily use and routine cleaning."
   },
   {
     icon: Zap,
-    title: "UV Stable Acrylic",
+    title: "Stain Resistant",
     desc: "Maintains colour clarity and gloss in sun-exposed interiors."
   },
   {
