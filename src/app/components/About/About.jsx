@@ -21,7 +21,7 @@ function useInView(ref) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
 
     observer.observe(el);
@@ -31,28 +31,26 @@ function useInView(ref) {
 
 export default function About() {
   const storyRef = useRef(null);
-  const aboutRef = useRef(null);
   const trustRef = useRef(null);
+  const statsRef = useRef(null);
   const ctaRef = useRef(null);
 
   useInView(storyRef);
-  useInView(aboutRef);
   useInView(trustRef);
+  useInView(statsRef);
   useInView(ctaRef);
 
   return (
     <section className={styles.aboutSection}>
       <div className={styles.container}>
-
-        {/* ================= STORY ================= */}
-        <div className={styles.storyGrid}>
-          <div ref={storyRef} className={styles.reveal}>
+        
+        {/* ================= STORY GRID ================= */}
+        <div ref={storyRef} className={`${styles.storyGrid} ${styles.reveal}`}>
+          <div className={styles.leftContent}>
             <span className={styles.kicker}>Our Philosophy</span>
-
             <h2 className={styles.title}>
               Modern Problems Need <span>Modern Surfaces</span>
             </h2>
-
             <p className={styles.desc}>
               HexaLam was created to challenge outdated laminate standards.
               We focus exclusively on high-gloss acrylic surfaces engineered
@@ -60,7 +58,6 @@ export default function About() {
             </p>
           </div>
 
-          {/* ================= 3D ACRYLIC SHEET ================= */}
           <div className={styles.visualWrapper}>
             <motion.div
               className={styles.floatingSheet}
@@ -76,18 +73,11 @@ export default function About() {
               }}
             >
               <div className={styles.sheetThickness} />
-
               <div className={styles.sheetFace}>
                 <div className={styles.acrylicSurface}>
                   <div className={styles.surfaceGrain} />
                 </div>
-
-                <img
-                  src="/logo.png"
-                  alt="HexaLam"
-                  className={styles.logoBadge}
-                />
-
+                <img src="/logo.png" alt="HexaLam" className={styles.logoBadge} />
                 <div className={styles.glossReflect} />
                 <div className={styles.edgeHighlight} />
               </div>
@@ -95,17 +85,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ================= WHO WE ARE ================= */}
-        <div ref={aboutRef} className={`${styles.aboutInfo} ${styles.reveal}`}>
-          <h3>Who We Are</h3>
-          <p>
-            HexaLam is a surface solutions brand built for architects,
-            interior designers, and builders who demand consistency,
-            precision, and long-term performance — not just visual appeal.
-          </p>
-        </div>
-
-        {/* ================= TRUST ================= */}
+        {/* ================= TRUST SECTION ================= */}
         <div ref={trustRef} className={`${styles.trustSection} ${styles.reveal}`}>
           <div className={styles.trustHeader}>
             <h3>The HexaLam Standard</h3>
@@ -114,30 +94,38 @@ export default function About() {
 
           <div className={styles.featureGrid}>
             <TrustCard
-              icon={<Factory size={22} />}
+              icon={<Factory size={24} />}
               title="Precision Manufacturing"
               text="Controlled pressing and calibrated bonding ensure uniform gloss and flatness."
             />
             <TrustCard
-              icon={<ShieldCheck size={22} />}
+              icon={<ShieldCheck size={24} />}
               title="6H Surface Hardness"
               text="Designed to resist micro-scratches from daily interior use."
             />
             <TrustCard
-              icon={<Zap size={22} />}
+              icon={<Zap size={24} />}
               title="UV Stable Polymers"
               text="Maintains colour clarity even in sun-exposed spaces."
             />
           </div>
+
+          {/* ================= STATS BAR ================= */}
+          <div ref={statsRef} className={`${styles.statsBar} ${styles.reveal}`}>
+            <StatItem number="100+" label="Global Textures" />
+            <div className={styles.divider} />
+            <StatItem number="6H" label="Hardness Rating" />
+            <div className={styles.divider} />
+            <StatItem number="15Yr" label="Warranty" />
+          </div>
         </div>
 
-        {/* ================= CTA ================= */}
+        {/* ================= FINAL CTA ================= */}
         <div ref={ctaRef} className={`${styles.aboutCTA} ${styles.reveal}`}>
           <Link href="/laminates/acrylic" className={styles.ctaBtn}>
-            View Acrylic Laminates
+            Explore Acrylic Collection
           </Link>
         </div>
-
       </div>
     </section>
   );
@@ -152,6 +140,15 @@ function TrustCard({ icon, title, text }) {
         <h4>{title}</h4>
         <p>{text}</p>
       </div>
+    </div>
+  );
+}
+
+function StatItem({ number, label }) {
+  return (
+    <div className={styles.statItem}>
+      <strong>{number}</strong>
+      <span>{label}</span>
     </div>
   );
 }

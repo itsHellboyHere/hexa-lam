@@ -1,11 +1,10 @@
 /* ================= SECTION ================= */
 .section {
-  background: #0c0a09;
+  /* Updated to new light background */
+  background: var(--bg-main); 
   padding: clamp(96px, 10vw, 160px) 0;
-  /* position: relative;
-  z-index: 2; */
-    /* box-shadow: 0 -40px 100px rgba(0,0,0,0.5); */
-  border-top: 1px solid rgba(255, 255, 255, 0.05); 
+  /* border-top: 1px solid rgba(255, 255, 255, 0.05); */
+  border-top: 1px solid var(--border-soft); 
   padding: 120px 0;
 }
 
@@ -33,14 +32,16 @@
 
 .title {
   font-size: clamp(2.2rem, 4vw, 3.4rem);
-  color: #fff;
+  /* Updated to dark text for white BG */
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .subtitle {
   font-size: 16px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.65);
+  /* Updated to muted dark text */
+  color: var(--text-muted);
 }
 
 /* ================= GRID ================= */
@@ -56,8 +57,10 @@
   padding: 48px 40px;
   border-radius: 28px;
 
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  /* Updated to soft light card style */
+  background: #ffffff;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 
   transition:
     transform 0.4s ease,
@@ -67,8 +70,10 @@
 
 .card:hover {
   transform: translateY(-6px);
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.14);
+  /* Updated hover state */
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 /* ================= ICON ================= */
@@ -86,17 +91,15 @@
   justify-content: center;
 
   color: var(--accent);
-  background: linear-gradient(
-    135deg,
-    rgba(245,158,11,0.25),
-    rgba(245,158,11,0.05)
-  );
+  /* Updated to new yellow gradient logic */
+  background: var(--accent-soft);
 
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease,
     background 0.4s ease;
 }
+
 .iconWrap::after {
   content: "";
   position: absolute;
@@ -104,16 +107,18 @@
   left: -120%;
   width: 60%;
   height: 220%;
+  /* Shine adjusted for light background */
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.45),
+    rgba(255,255,255,0.8),
     transparent
   );
   transform: rotate(25deg);
   opacity: 0;
   transition: left 0.6s ease, opacity 0.3s ease;
 }
+
 .iconWrap svg {
   transition: transform 0.4s ease;
 }
@@ -124,9 +129,12 @@
 
 .card:hover .iconWrap {
   transform: translateY(-2px) scale(1.1) rotate(-2deg);
+  /* Adjusted shadow colors for the yellow accent */
   box-shadow:
     0 0 0 6px rgba(245,158,11,0.08),
-    0 16px 40px rgba(245,158,11,0.25);
+    0 16px 40px rgba(245,158,11,0.15);
+  background: var(--accent-gradient);
+  color: #fff; /* Icon turns white on yellow BG */
 }
 
 .card:hover .iconWrap::after {
@@ -137,14 +145,16 @@
 /* ================= TEXT ================= */
 .card h3 {
   font-size: 18px;
-  color: #fff;
+  /* Updated to dark text */
+  color: var(--text-primary);
   margin-bottom: 14px;
 }
 
 .card p {
   font-size: 15px;
   line-height: 1.65;
-  color: rgba(255,255,255,0.65);
+  /* Updated to muted dark text */
+  color: var(--text-muted);
 }
 
 /* ================= MOBILE ================= */

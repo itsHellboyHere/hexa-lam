@@ -20,15 +20,17 @@
   align-items: center;
   justify-content: center;
 
-  color: rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  /* Updated for Luxe White */
+  color: var(--text-primary);
+  background: #ffffff;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 
   overflow: hidden;
-  transition: transform 0.25s ease, color 0.25s ease;
+  transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-/* ✅ Lucide icons fix */
+/*  Lucide icons fix */
 .iconItem a svg {
   z-index: 2;
   pointer-events: none;
@@ -39,10 +41,10 @@
 .fill {
   position: absolute;
   inset: 0;
-  background: var(--accent);
+  background: var(--accent-gradient); /* Uses your global yellow gradient */
   transform: scaleY(0);
   transform-origin: bottom;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
@@ -51,8 +53,10 @@
 }
 
 .iconItem a:hover {
-  color: #000;
-  transform: translateY(-2px);
+  color: #000; /* Dark icon on yellow fill */
+  transform: translateY(-3px);
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
 }
 
 /* Tooltip */
@@ -61,10 +65,14 @@
   bottom: 52px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 6px 10px;
+  padding: 6px 12px;
 
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  
+  /* Dark tooltip for high contrast on light site */
   background: #111;
   color: #fff;
   border-radius: 6px;
@@ -72,13 +80,33 @@
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Tooltip arrow */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #111 transparent transparent transparent;
 }
 
 .iconItem:hover .tooltip {
   opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
 }
 
+/* Special Case: WhatsApp Fill */
 .iconItem a[href*="wa.me"]:hover .fill {
   background: #25D366;
+}
+
+/* Special Case: WhatsApp Shadow */
+.iconItem a[href*="wa.me"]:hover {
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
 }

@@ -9,7 +9,6 @@ export default function LaminatesPage() {
   return (
     <>
       <LaminatesHero />
-      {/* <div className="heroSpacer" /> */}
       <PageIntro />
       <AcrylicShowcase />
       <KeyStickyFeatures />

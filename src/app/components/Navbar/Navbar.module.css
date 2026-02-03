@@ -1,14 +1,17 @@
 /* ===== NAVBAR ===== */
+
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 72px;
+  height: var(--navbar-height);
   z-index: 100;
 
-  background: rgba(12, 10, 9, 0.65);
+  /* Switched to a cleaner white glass effect */
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--border-soft);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
 }
 
 .inner {
@@ -24,22 +27,23 @@
 
 /* Logo */
 .logo {
-    margin-top: 4px;
+  margin-top: 4px;
   height: 48px;
   position: relative;
   transition: transform 0.3s ease;
   animation: gloss-sweep 3s ease-in-out infinite;
 }
 
-.logo:hover{
-    transform: scale(1.05);
+.logo:hover {
+  transform: scale(1.05);
 }
 
 @keyframes gloss-sweep {
   0% { filter: brightness(1); }
-  50% { filter: brightness(1.3) contrast(1.1); }
+  50% { filter: brightness(1.15) contrast(1.05); } /* Slightly softened for white bg */
   100% { filter: brightness(1); }
 }
+
 /* ===== DESKTOP NAV ===== */
 .navLinks {
   display: flex;
@@ -53,13 +57,16 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 
-  color: rgba(214, 211, 209, 0.75);
+  /* Using the new text-primary variable */
+  color: var(--text-primary);
   background: none;
   border: none;
   cursor: pointer;
+  transition: color 0.25s ease;
 }
 
 .link:hover {
+  /* Applying the new yellow color */
   color: var(--accent);
 }
 
@@ -78,15 +85,18 @@
   width: 100%;
   height: 18px; /* hover gap buffer */
 }
+
 .dropdown {
   position: absolute;
   top: 140%;
   left: 0;
 
-  background: rgba(12, 10, 9, 0.95);
+  /* Solid white for dropdown depth */
+  background: #ffffff; 
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   min-width: 220px;
   padding: 8px 0;
@@ -114,10 +124,12 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
 
-  color: rgba(214, 211, 209, 0.8);
+  color: var(--text-muted);
 }
 
 .dropdown a:hover {
+  /* Using the new yellow gradient for the text on hover */
+  background: var(--bg-section);
   color: var(--accent);
 }
 
@@ -126,7 +138,7 @@
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--text-primary); /* Changed from white to primary text */
 }
 
 /* Mobile overlay (ABOVE navbar) */
@@ -135,7 +147,7 @@
   inset: 0;
   z-index: 800;
 
-  background: rgba(12, 10, 9, 0.97);
+  background: var(--bg-main); /* Uses the white/off-white global background */
   padding: 88px 24px;
 
   display: flex;
@@ -150,14 +162,19 @@
   transform: translateX(0);
 }
 
+.menuBtn,
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+}
+
 .closeBtn {
   position: absolute;
   top: 20px;
   right: 20px;
-
   background: none;
   border: none;
-  color: white;
 }
 
 .mobileMenu a,
@@ -167,7 +184,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 
-  color: rgba(214, 211, 209, 0.9);
+  color: var(--text-primary);
   background: none;
   border: none;
   text-align: left;
@@ -176,16 +193,17 @@
 .subLink {
   padding-left: 16px;
   font-size: 12px;
-  color: rgba(214, 211, 209, 0.65);
+  color: var(--text-muted);
 }
 
 .chevron {
   display: inline-flex;
   margin-left: 2px;
   align-items: center;
-  color: rgba(214, 211, 209, 0.6);
+  color: var(--text-muted);
   cursor: default;
 }
+
 .mobileLaminates {
   display: flex;
   align-items: center;
@@ -195,7 +213,7 @@
 .mobileChevron {
   background: none;
   border: none;
-  color: rgba(214, 211, 209, 0.9);
+  color: var(--text-muted);
 }
 
 /* Responsive */

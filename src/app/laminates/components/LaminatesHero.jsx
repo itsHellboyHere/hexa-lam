@@ -14,10 +14,10 @@ export default function LaminatesHero() {
           Precision Acrylic<br />
           Surface Solutions
         </h1>
-        <p>
+        {/* <p>
           High-gloss laminate surfaces engineered for modern
           interiors, long-term durability, and visual clarity.
-        </p>
+        </p> */}
       </div>
     </section>
   );

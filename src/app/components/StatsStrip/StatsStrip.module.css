@@ -1,15 +1,12 @@
 /* ================= STRIP ================= */
 .strip {
-  /* background: linear-gradient(
-    to right,
-    rgba(12,10,9,0.98),
-    rgba(12,10,9,0.92)
-  ); */
-  background: #0c0a09;
+  /* Updated to clean white background */
+  background: #ffffff;
   position: relative;
   z-index: 2;
-  /* border-top: 1px solid rgba(255,255,255,0.08); */
-  /* border-bottom: 1px solid rgba(255,255,255,0.08); */
+  /* Soft border for subtle separation on white page */
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .inner {
@@ -44,7 +41,8 @@
 .number {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
-  color: #fff;
+  /* Updated to dark text for white BG */
+  color: var(--text-primary);
   line-height: 1;
 }
 
@@ -59,7 +57,8 @@
   font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  /* Updated to muted dark text */
+  color: var(--text-muted);
 }
 
 /* ================= MOBILE ================= */

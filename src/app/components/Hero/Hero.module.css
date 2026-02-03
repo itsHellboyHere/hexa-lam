@@ -1,21 +1,22 @@
 /* ================= HERO ================= */
+
 .hero {
-    position: relative;
+    position: sticky;
     min-height: calc(100vh - 72px);
     display: flex;
     align-items: flex-end;
     overflow: hidden;
-    position: sticky;
+    
   top: var(--navbar-height);
   z-index: 1;
 }
 
 /* ================= BACKGROUND ================= */
 .bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .bg::before {
@@ -23,281 +24,158 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-
+  /* Darker gradient for text contrast */
   background: linear-gradient(
-    to top,
-    rgba(12, 10, 9, 0.75),
-    rgba(12, 10, 9, 0.45) 45%,
-    rgba(12, 10, 9, 0.15) 70%,
-    transparent
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    transparent 100%
   );
 }
 
 .bg img {
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-      filter: brightness(0.9) contrast(1.05) saturate(1.05);
-    transform: scale(1);
-    transition: transform 1.2s ease-out;
-    will-change: transform;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Adjusted for white text pop */
+  filter: brightness(0.85) contrast(1.1);
+  transform: scale(1);
+  transition: transform 1.2s ease-out;
+  will-change: transform;
 }
 
 /* Acrylic depth */
 .acrylicOverlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.02),
-            rgba(0, 0, 0, 0.10));
+  position: absolute;
+  inset: 0;
+  /* Darker lateral gradient */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
 }
 
 /* Shine */
 .shine {
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 45%;
-    height: 100%;
-    background: linear-gradient(to right,
-            transparent,
-            rgba(255, 255, 255, 0.08),
-            transparent);
-    transform: skewX(-25deg);
-    animation: shine 9s infinite;
-}
-
-@keyframes shine {
-    0% {
-        left: -120%;
-    }
-
-    22% {
-        left: 200%;
-    }
-
-    100% {
-        left: 200%;
-    }
-}
-
-/* Bottom grounding */
-.gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top,
-            rgba(12, 10, 9, 0.95),
-            rgba(12, 10, 9, 0.6) 35%,
-            transparent 70%);
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shine 9s infinite;
 }
 
 /* ================= CONTENT ================= */
 .container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
+  position: relative;
+  z-index: 2;
+  width: 100%;
 }
 
 .content {
-    max-width: 760px;
-    padding: 63px clamp(24px, 6vw, 120px) 72px;
+  max-width: 760px;
+  padding: 63px clamp(24px, 6vw, 120px) 72px;
 }
 
 /* ================= TEXT ================= */
 .kicker {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
 }
 
 .title {
-    font-size: clamp(3rem, 5vw, 5.4rem);
-    line-height: 1.08;
-    margin-bottom: 22px;
-    text-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  font-size: clamp(3rem, 5vw, 5.4rem);
+  line-height: 1.08;
+  margin-bottom: 22px;
+  /* White text for dark hero */
+  color: #fff;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 .title span {
-    color: var(--accent);
-    animation: title-glow 4s ease-in-out infinite alternate;
+  /* Gradient Yellow */
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title-glow 4s ease-in-out infinite alternate;
 }
 
-
 .desc {
-    max-width: 600px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 40px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  max-width: 600px;
+  font-size: 17px;
+  line-height: 1.7;
+  /* High contrast for dark BG */
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 40px;
 }
 
 /* ================= ACTIONS ================= */
 .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-
-    margin-bottom: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 35px;
 }
 
 .primaryBtn {
-    /* position: relative;
-  background: var(--accent);
+  position: relative;
+  overflow: hidden;
+  /* Gradient Yellow BG */
+  background: var(--accent-gradient);
   color: #000;
   padding: 15px 32px;
   border-radius: 12px;
   font-weight: 700;
-  transition: transform 0.25s ease, box-shadow 0.25s ease; */
-    position: relative;
-    overflow: hidden;
-    background: var(--accent);
-    color: #000;
-    padding: 15px 32px;
-    border-radius: 12px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.primaryBtn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.4);
-    transform: rotate(30deg);
-    transition: all 0.5s ease;
-}
-
-.primaryBtn:hover::after {
-    left: 120%;
-}
-
-.primaryBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3);
-    background: #f59e0b;
-    /* transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(245, 158, 11, 0.35); */
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .secondaryBtn {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #fff;
-    padding: 15px 32px;
-    border-radius: 12px;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.secondaryBtn:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.5);
+  /* Transparent Glass Look */
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 12px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 /* ================= STATS ================= */
 .stats {
-    display: flex;
-    gap: 48px;
-    flex-wrap: wrap;
-    /* border-top: 1px solid rgba(255,255,255,0.12); */
-    /* padding-top: 28px; */
-    border-top: none;
-    padding-top: 0;
-    margin-top: 24px;
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 28px;
+  margin-top: 24px;
 }
 
 .stat strong {
-    font-size: 22px;
+  font-size: 22px;
+  color: #fff;
 }
 
 .stat span {
-    display: block;
-    margin-top: 6px;
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-    .hero {
-        min-height: auto;
-        align-items: center;
-    }
-
-    .content {
-        padding: 120px 24px 64px;
-    }
-
-    .title {
-        font-size: 2.6rem;
-    }
-
-    .desc {
-        font-size: 15px;
-    }
-
-    .stats {
-        gap: 28px;
-    }
-
-    .actions {
-        flex-direction: column;
-        gap: 14px;
-        margin-bottom: 32px;
-    }
-
-    .primaryBtn,
-    .secondaryBtn {
-        width: 100%;
-        text-align: center;
-        padding: 14px 20px;
-        border-radius: 10px;
-    }
-
-
-    .primaryBtn {
-        box-shadow: 0 8px 18px rgba(245, 158, 11, 0.28);
-    }
-
-
-    .secondaryBtn {
-        background: rgba(255, 255, 255, 0.03);
-        border-color: rgba(255, 255, 255, 0.18);
-        font-size: 14px;
-    }
-
-}
-
-/* Desktop hover zoom */
-@media (hover: hover) {
-    .hero:hover .bg img {
-        transform: scale(1.05);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .bg img {
-        transition: none;
-        transform: none !important;
-    }
-}
-
-@keyframes title-glow {
-  from {
-    text-shadow: 0 0 8px rgba(217, 119, 6, 0.25);
-  }
-  to {
-    text-shadow: 0 0 18px rgba(217, 119, 6, 0.45);
-  }
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
 }
