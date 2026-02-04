@@ -43,18 +43,22 @@ export default function About() {
   return (
     <section className={styles.aboutSection}>
       <div className={styles.container}>
-        
+
         {/* ================= STORY GRID ================= */}
         <div ref={storyRef} className={`${styles.storyGrid} ${styles.reveal}`}>
           <div className={styles.leftContent}>
-            <span className={styles.kicker}>Our Philosophy</span>
+            <span className={styles.kicker}>About HexaLam</span>
+
             <h2 className={styles.title}>
-              Modern Problems Need <span>Modern Surfaces</span>
+              Redefining Interiors With <span>Acrylic Excellence</span>
             </h2>
+
             <p className={styles.desc}>
-              HexaLam was created to challenge outdated laminate standards.
-              We focus exclusively on high-gloss acrylic surfaces engineered
-              using contemporary pressing techniques and strict quality control.
+              HEXALAM Acrylic Laminates is a premium surface solution brand committed
+              to redefining modern interiors through innovation, durability, and
+              refined aesthetics. Designed for those who seek elegance without
+              compromise, HEXALAM combines cutting-edge acrylic technology with
+              contemporary design to create surfaces that truly stand out.
             </p>
           </div>
 
@@ -88,41 +92,41 @@ export default function About() {
         {/* ================= TRUST SECTION ================= */}
         <div ref={trustRef} className={`${styles.trustSection} ${styles.reveal}`}>
           <div className={styles.trustHeader}>
-            <h3>The HexaLam Standard</h3>
-            <p>Built for real-world interiors, not showroom samples.</p>
+<h3>The HEXALAM Standard</h3>
+<p>Engineered for performance, designed for modern living.</p>
           </div>
 
           <div className={styles.featureGrid}>
             <TrustCard
               icon={<Factory size={24} />}
-              title="Precision Manufacturing"
-              text="Controlled pressing and calibrated bonding ensure uniform gloss and flatness."
+title="Precision Engineering"
+text="Each acrylic laminate is manufactured with strict process control to deliver exceptional clarity, uniform gloss, and long-lasting performance."
             />
             <TrustCard
               icon={<ShieldCheck size={24} />}
-              title="6H Surface Hardness"
-              text="Designed to resist micro-scratches from daily interior use."
+title="Scratch & Impact Resistant"
+text="High surface hardness ensures resistance against daily wear, scratches, and impact in high-traffic interior applications."
             />
             <TrustCard
               icon={<Zap size={24} />}
-              title="UV Stable Polymers"
-              text="Maintains colour clarity even in sun-exposed spaces."
+title="UV & Moisture Resistant"
+text="Engineered to retain colour brilliance and surface integrity even in sunlit, humid, and demanding environments."
             />
           </div>
 
           {/* ================= STATS BAR ================= */}
-          <div ref={statsRef} className={`${styles.statsBar} ${styles.reveal}`}>
-            <StatItem number="100+" label="Global Textures" />
-            <div className={styles.divider} />
-            <StatItem number="6H" label="Hardness Rating" />
-            <div className={styles.divider} />
-            <StatItem number="15Yr" label="Warranty" />
-          </div>
+<div ref={statsRef} className={`${styles.statsBar} ${styles.reveal}`}>
+  <StatItem number="High-Gloss" label="Acrylic Finish" />
+  <div className={styles.divider} />
+  <StatItem number="UV +" label="Colour Stability" />
+  <div className={styles.divider} />
+  <StatItem number="Scratch" label="Resistant Surface" />
+</div>
         </div>
 
         {/* ================= FINAL CTA ================= */}
         <div ref={ctaRef} className={`${styles.aboutCTA} ${styles.reveal}`}>
-          <Link href="/laminates/acrylic" className={styles.ctaBtn}>
+          <Link href="/laminates/acrylic-laminates" className={styles.ctaBtn}>
             Explore Acrylic Collection
           </Link>
         </div>

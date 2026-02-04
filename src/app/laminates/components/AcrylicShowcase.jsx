@@ -33,7 +33,7 @@ export default function AcrylicShowcase() {
             <li>Available in solid & contemporary colours</li>
           </ul>
 
-          <Link href="/laminates/acrylic" className={styles.button}>
+          <Link href="/laminates/acrylic-laminates" className={styles.button}>
             Explore Acrylic Laminates
           </Link>
         </div>

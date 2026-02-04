@@ -20,7 +20,7 @@ export default function ProductHighlight() {
             wardrobes, and architectural interiors.
           </p>
 
-          <Link href="/acrylic-laminates" className={styles.cta}>
+          <Link href="/laminates/acrylic-laminates" className={styles.cta}>
             Explore Acrylic Laminates
           </Link>
         </div>
