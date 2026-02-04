@@ -1,33 +1,61 @@
 "use client";
 
+import { useRef, useState } from "react";
 import styles from "@/app/css/HowItsMade.module.css";
 import Link from "next/link";
+import { Play } from "lucide-react";
 
 const PROCESS = [
   {
     title: "Acrylic Surface Formation",
-    video: "/videos/high-gloss.mp4",
+    video:
+      "https://res.cloudinary.com/dgifa4wgb/video/upload/f_auto,q_auto,w_1280/high-gloss_b8hhwj.mp4",
+    poster:
+      "https://res.cloudinary.com/dgifa4wgb/video/upload/so_1.2,f_jpg,q_auto,w_1280/high-gloss_b8hhwj.mp4",
     tall: true,
   },
   {
     title: "High-Pressure Bonding",
-    video: "/videos/pressing.mp4",
+    video:
+      "https://res.cloudinary.com/dgifa4wgb/video/upload/f_auto,q_auto,w_1280/pressing_pd1qvo.mp4",
+    poster:
+      "https://res.cloudinary.com/dgifa4wgb/video/upload/so_1.5,f_jpg,q_auto,w_1280/pressing_pd1qvo.mp4",
   },
   {
     title: "Surface Finishing",
-    video: "/videos/pressing.mp4",
+    video:
+      "https://res.cloudinary.com/dgifa4wgb/video/upload/f_auto,q_auto,w_1280/pressing_pd1qvo.mp4",
+    poster:
+      "https://res.cloudinary.com/dgifa4wgb/video/upload/so_2.2,f_jpg,q_auto,w_1280/pressing_pd1qvo.mp4",
   },
-//   {
-//     title: "Quality Inspection",
-//     video: "/videos/pressing.mp4",
-//   },
 ];
 
 export default function HowItsMade() {
+  const videoRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const togglePlay = (index) => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+
+      if (i === index) {
+        if (video.paused) {
+          video.play();
+          setActiveIndex(index);
+        } else {
+          video.pause();
+          setActiveIndex(null);
+        }
+      } else {
+        video.pause();
+      }
+    });
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
-        {/* LEFT – Sticky */}
+        {/* LEFT */}
         <div className={styles.left}>
           <span className={styles.kicker}>Manufacturing Process</span>
 
@@ -42,33 +70,37 @@ export default function HowItsMade() {
             long-term colour stability for modern interiors.
           </p>
 
-          {/* <ul className={styles.steps}>
-            <li>High Gloss Acrylic coating</li>
-            <li>High-pressure bonding</li>
-            <li>Surface curing & stabilisation</li>
-            <li>Multi-stage quality inspection</li>
-          </ul> */}
-
           <Link href="/technical-specifications" className={styles.cta}>
-           Download Product Sheet
+            Download Product Sheet
           </Link>
         </div>
 
-        {/* RIGHT – Video Grid */}
+        {/* RIGHT */}
         <div className={styles.right}>
-          {PROCESS.map((item) => (
+          {PROCESS.map((item, index) => (
             <div
               key={item.title}
               className={`${styles.card} ${item.tall ? styles.tall : ""}`}
+              onClick={() => togglePlay(index)}
             >
               <video
+                ref={(el) => (videoRefs.current[index] = el)}
+                className={styles.video}
                 src={item.video}
-                autoPlay
+                poster={item.poster}
                 muted
                 loop
                 playsInline
-                className={styles.video}
+                preload="metadata"
               />
+
+              {/* Play Overlay */}
+              {activeIndex !== index && (
+                <div className={styles.playOverlay}>
+                  <Play size={28} />
+                </div>
+              )}
+
               <div className={styles.overlay} />
               <span className={styles.cardTitle}>{item.title}</span>
             </div>

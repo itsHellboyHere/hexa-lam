@@ -1,7 +1,5 @@
-/* ================= SECTION ================= */
 .section {
-  /* Updated to new light background */
-  background: var(--bg-main);
+  background: var(--bg-section);
   padding: clamp(96px, 10vw, 160px) 0;
 }
 
@@ -15,17 +13,17 @@
   gap: clamp(48px, 6vw, 96px);
 }
 
-/* ================= LEFT (STICKY) ================= */
+/* LEFT (STICKY) */
 .left {
   position: sticky;
-  top: 120px;
-  max-width: 520px;
+  top: calc(var(--navbar-height) + 40px);
   align-self: flex-start;
+  max-width: 520px;
 }
 
 .kicker {
   font-size: 11px;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 16px;
@@ -33,15 +31,13 @@
 }
 
 .title {
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-size: clamp(2.6rem, 4vw, 3.6rem);
   line-height: 1.1;
   margin-bottom: 20px;
-  /* Updated to dark text for light background */
   color: var(--text-primary);
 }
 
 .title span {
-  /* Using global gradient yellow for title accents */
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -50,54 +46,53 @@
 .desc {
   font-size: 16px;
   line-height: 1.7;
-  /* Updated to muted dark text */
   color: var(--text-muted);
-  margin-bottom: 28px;
-}
-
-.steps {
-  list-style: none;
-  padding: 0;
   margin-bottom: 32px;
 }
 
-.steps li {
-  position: relative;
-  padding-left: 18px;
-  margin-bottom: 12px;
-  /* Updated to dark text */
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-.steps li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
+/* CTA */
 .cta {
+  position: relative;
   display: inline-block;
-  padding: 14px 30px;
+  padding: 14px 32px;
   border-radius: 14px;
 
-  /* Using global yellow gradient for the button */
   background: var(--accent-gradient);
   color: #000;
   font-weight: 700;
 
-  /* Adjusted shadow for light theme */
-  box-shadow: 0 10px 28px rgba(245,158,11,0.2);
+  box-shadow:
+    0 8px 22px rgba(245,158,11,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+
+  overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -40%;
+  width: 20%;
+  height: 220%;
+  background: rgba(255,255,255,0.45);
+  transform: rotate(25deg);
+  transition: left 0.6s ease;
+}
+
+.cta:hover::after {
+  left: 120%;
 }
 
 .cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(245,158,11,0.3);
+  box-shadow:
+    0 16px 36px rgba(245,158,11,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.45);
 }
 
-/* ================= RIGHT (GRID) ================= */
+/* RIGHT (VIDEO GRID) */
 .right {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -109,8 +104,7 @@
   position: relative;
   border-radius: 22px;
   overflow: hidden;
-  /* Added soft shadow to help cards stand out on white background */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: #000;
 }
 
 .tall {
@@ -125,29 +119,27 @@
   transition: transform 1.2s ease;
 }
 
-/* Updated overlay for light theme contrast */
 .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.1) 40%,
-    transparent 100%
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.15)
   );
 }
 
 .cardTitle {
   position: absolute;
-  left: 20px;
-  bottom: 18px;
+  left: 18px;
+  bottom: 16px;
   z-index: 2;
 
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: #fff;
 }
 
 /* Hover zoom */
@@ -157,7 +149,7 @@
   }
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media (max-width: 900px) {
   .wrapper {
     grid-template-columns: 1fr;
@@ -177,4 +169,27 @@
   .tall {
     grid-row: span 1;
   }
+}
+
+/* play video */
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover .playOverlay {
+  background: rgba(0, 0, 0, 0.35);
 }
