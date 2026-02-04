@@ -92,36 +92,36 @@ export default function About() {
         {/* ================= TRUST SECTION ================= */}
         <div ref={trustRef} className={`${styles.trustSection} ${styles.reveal}`}>
           <div className={styles.trustHeader}>
-<h3>The HEXALAM Standard</h3>
-<p>Engineered for performance, designed for modern living.</p>
+            <h3>The HEXALAM Standard</h3>
+            <p>Engineered for performance, designed for modern living.</p>
           </div>
 
           <div className={styles.featureGrid}>
             <TrustCard
               icon={<Factory size={24} />}
-title="Precision Engineering"
-text="Each acrylic laminate is manufactured with strict process control to deliver exceptional clarity, uniform gloss, and long-lasting performance."
+              title="Precision Engineering"
+              text="Each acrylic laminate is manufactured with strict process control to deliver exceptional clarity, uniform gloss, and long-lasting performance."
             />
             <TrustCard
               icon={<ShieldCheck size={24} />}
-title="Scratch & Impact Resistant"
-text="High surface hardness ensures resistance against daily wear, scratches, and impact in high-traffic interior applications."
+              title="Scratch & Impact Resistant"
+              text="High surface hardness ensures resistance against daily wear, scratches, and impact in high-traffic interior applications."
             />
             <TrustCard
               icon={<Zap size={24} />}
-title="UV & Moisture Resistant"
-text="Engineered to retain colour brilliance and surface integrity even in sunlit, humid, and demanding environments."
+              title="UV & Moisture Resistant"
+              text="Engineered to retain colour brilliance and surface integrity even in sunlit, humid, and demanding environments."
             />
           </div>
 
           {/* ================= STATS BAR ================= */}
-<div ref={statsRef} className={`${styles.statsBar} ${styles.reveal}`}>
-  <StatItem number="High-Gloss" label="Acrylic Finish" />
-  <div className={styles.divider} />
-  <StatItem number="UV +" label="Colour Stability" />
-  <div className={styles.divider} />
-  <StatItem number="Scratch" label="Resistant Surface" />
-</div>
+          <div ref={statsRef} className={`${styles.statsBar} ${styles.reveal}`}>
+            <StatItem number="High-Gloss" label="Acrylic Finish" />
+            <div className={styles.divider} />
+            <StatItem number="UV +" label="Colour Stability" />
+            <div className={styles.divider} />
+            <StatItem number="Scratch" label="Resistant Surface" />
+          </div>
         </div>
 
         {/* ================= FINAL CTA ================= */}

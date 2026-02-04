@@ -56,7 +56,7 @@ export default function Footer() {
       {/* Bottom Bar with Developer Credit */}
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {new Date().getFullYear()} HexaLam. Part of Trend PVC Network.</span>
+          <span>© {new Date().getFullYear()} HexaLam.</span>
           <span className={styles.developer}>
             Developed by <a href="https://creatormonk.in" target="_blank" rel="noopener noreferrer">creatormonk.in</a>
           </span>
