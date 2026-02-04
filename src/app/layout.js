@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${notoSans.variable} ${robotoMono.variable}`}>
        <Navbar/>
-       {/* <ScrollToTop/> */}
+       <ScrollToTop/>
         {children}
         <Footer/>
       </body>

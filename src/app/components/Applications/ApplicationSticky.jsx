@@ -5,22 +5,22 @@ const APPLICATIONS = [
   {
     title: "Modular Kitchens",
     image: "/applications/kitchen.jpg",
-    link: "/laminates/acrylic-laminates#full-collection",
+    link: "/laminates/acrylic-laminates",
   },
   {
     title: "Wardrobes & Storage",
     image: "/applications/wardrobe.jpg",
-    link: "/laminates/acrylic-laminates#full-collection",
+    link: "/laminates/acrylic-laminates",
   },
   {
     title: "Wall Panels",
     image: "/applications/interior.jpg",
-    link: "/laminates/acrylic-laminates#full-collection",
+    link: "/laminates/acrylic-laminates",
   },
   {
     title: "Commercial Interiors",
     image: "/applications/comm.jpg",
-    link: "/laminates/acrylic-laminates#full-collection",
+    link: "/laminates/acrylic-laminates",
   },
 ];
 

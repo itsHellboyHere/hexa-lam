@@ -25,7 +25,7 @@ export default function Footer() {
         <div className={styles.links}>
 <div>
             <h4>Collections</h4>
-            <Link href="/laminates/acrylic-laminates#full-collection">Full Collection</Link>
+            {/* <Link href="/laminates/acrylic-laminates#full-collection">Full Collection</Link> */}
             <Link href="/laminates/acrylic-laminates">Acrylic Laminates</Link>
             <Link href="/laminates">Laminates</Link>
          
