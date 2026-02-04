@@ -107,8 +107,8 @@
   top: 40px;
   left: 30px;
   width: 90px;
-  opacity: 0.1;
-  filter: grayscale(100%);
+  opacity: 0.8;
+  filter: grayscale(10%);
   transform: rotate(-90deg) translateZ(15px);
   z-index: 3;
 }

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import styles from "../css/CategoryFilter.module.css";
 
-const CATEGORIES = ["All", "ASA Sheet", "HD Acrylic", "Designer", "Glass & Mirror"];
+const CATEGORIES = ["All", "ASA Sheet", "HD Acrylic", "Designer", "Mirror Glass"];
 
 export default function CategoryFilter({ activeCategory, onCategoryChange }) {
   return (

@@ -21,7 +21,7 @@
 .logo {
   height: 34px;
   margin-bottom: 24px;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
 }
 
 .tagline {
