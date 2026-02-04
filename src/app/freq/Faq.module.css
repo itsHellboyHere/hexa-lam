@@ -1,0 +1,129 @@
+.wrapper {
+  background: #fbfbfb;
+  padding: clamp(50px, 12vw, 100px) 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.title span { font-weight: 600; }
+
+.subtitle {
+  margin-top: 16px;
+  color: #666;
+  font-size: 18px;
+}
+
+/* FAQ ITEMS */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.open {
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.question {
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.4;
+}
+
+.toggle {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.answer {
+  padding: 0 32px 24px;
+}
+
+.answer p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+  border-top: 1px solid #f5f5f5;
+  padding-top: 16px;
+}
+
+/* CTA BLOCK */
+.contactCta {
+  margin-top: 100px;
+  text-align: center;
+  padding: 60px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 24px;
+}
+
+.ctaIcon { color: var(--accent); margin-bottom: 24px; }
+.contactCta h3 { font-size: 24px; margin-bottom: 12px; }
+.contactCta p { color: #888; margin-bottom: 28px; }
+.contactCta a {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.contactCta a:hover { background: var(--accent); transform: translateY(-3px); }
+
+@media (max-width: 600px) {
+  .question { padding: 20px; }
+  .answer { padding: 0 20px 20px; }
+}

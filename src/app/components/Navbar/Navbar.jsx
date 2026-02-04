@@ -43,6 +43,7 @@ export default function Navbar() {
 
             <Link href="/about" className={styles.link}>About</Link>
             <Link href="/contact" className={styles.link}>Contact</Link>
+              <Link href="/freq" className={styles.link}>F & Q</Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -104,6 +105,9 @@ export default function Navbar() {
 
   <Link href="/contact" onClick={() => setMenuOpen(false)}>
     Contact
+  </Link>
+ <Link href="/freq" onClick={() => setMenuOpen(false)}>
+    F & Q
   </Link>
 </div>
     </>
