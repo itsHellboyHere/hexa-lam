@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styles from "../css/AcrylicCatalog.module.css";
 import { ACRYLIC_PRODUCTS } from "../data/AcyrlicData";
 import CategoryFilter from "../components/CategoryFilter";
-
+import Link from "next/link";
 export default function AcrylicCatalog() {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -38,6 +38,7 @@ export default function AcrylicCatalog() {
                 transition={{ duration: 0.4 }}
                 className={styles.card}
               >
+                <Link href ={`/laminates/acrylic-laminates/${product.slug}`}> 
                 <div className={styles.imageBox}>
                   <img src={product.img} alt={product.name} />
                   <div className={styles.glossOverlay} />
@@ -51,6 +52,7 @@ export default function AcrylicCatalog() {
                     <span className={styles.code}>{product.id}</span>
                   </div>
                 </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

@@ -1,0 +1,263 @@
+.wrapper {
+  background: #fbfbfb;
+  /* padding: clamp(04px, 8vw, 110px) 0; */
+  padding-top: 72px;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 100px;
+  align-items: start;
+  margin-bottom: 45px;
+}
+
+/* ---------- LEFT CONTENT ---------- */
+
+.kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #111;
+  line-height: 1.15;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.title span {
+  font-weight: 600;
+  color: #000;
+}
+
+/* ---------- FORM ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputGroup label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #999;
+  letter-spacing: 0.1em;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus,
+.inputGroup textarea:focus {
+  border-color: var(--accent);
+}
+
+.submitBtn {
+  margin-top: 10px;
+  padding: 22px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.35s ease;
+}
+
+.submitBtn:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ---------- RIGHT INFO PANEL ---------- */
+
+.infoSide {
+  padding: 48px;
+  position: sticky;
+  top: var(--navbar-height);
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.04);
+}
+
+/* Technical highlights */
+.specGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.specItem {
+  display: flex;
+  gap: 20px;
+}
+
+.icon {
+  color: var(--accent);
+}
+
+.specItem strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #111;
+}
+
+.specItem span {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Contact details */
+.contactDetails {
+  padding-top: 40px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.detailItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.detailItem label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 2px;
+}
+
+.detailItem span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+}
+
+/* Trust footer */
+.trustFooter {
+  margin-top: 56px;
+  text-align: center;
+}
+
+.trustFooter p {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.networkStats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spin {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.inputError {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.successMsg {
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.errorMsg {
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

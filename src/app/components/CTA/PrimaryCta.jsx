@@ -19,7 +19,7 @@ export default function PrimaryCTA() {
           </p>
 
           <div className={styles.actions}>
-            <Link href="/laminates/acrylic" className={styles.primaryBtn}>
+            <Link href="/laminates/acrylic-laminates" className={styles.primaryBtn}>
               View Acrylic Collection
             </Link>
 
