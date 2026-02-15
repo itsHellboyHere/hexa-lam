@@ -144,15 +144,17 @@ export default function HexalamContact() {
           <div className={styles.contactDetails}>
             <div className={styles.detailItem}>
               <Mail size={18} className={styles.icon} />
-              <div><label>Email</label><span>info@trendpvc.com</span></div>
+              <div><label>Email</label><span>info@hexalam.com</span></div>
             </div>
             <div className={styles.detailItem}>
               <Phone size={18} className={styles.icon} />
-              <div><label>Customer Care</label><span>+91-11 40396922</span></div>
+              <div><label>Customer Care</label><span>+918527355536</span></div>
             </div>
             <div className={styles.detailItem}>
               <MapPin size={18} className={styles.icon} />
-              <div><label>Location</label><span>Delhi NCR, India</span></div>
+              <div><label>Location</label><span>
+              Head Office: 236, <br />
+              New Arya Nagar, Ghaziabad, UP</span></div>
             </div>
           </div>
 
