@@ -9,9 +9,11 @@ export default function AcrylicPage(){
     return(
         <>
         <AcrylicHero/>
+
         <AcrylicIntro/>
-        <KeyStickyFeatures/>
         <AcrylicShadesGrid/>
+        <KeyStickyFeatures/>
+        
         <AcrylicCatalog/>
         </>
     )

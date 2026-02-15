@@ -9,11 +9,11 @@ export default function PageIntro() {
       <div className={styles.container}>
         <div className={styles.grid}>
           
-          {/* Left Side: Large Branding/Kicker */}
+          {/* Left Side */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className={styles.left}
           >
             <span className={styles.kicker}>Surface Category</span>
@@ -22,12 +22,11 @@ export default function PageIntro() {
             </h2>
           </motion.div>
 
-          {/* Right Side: The Copy */}
+          {/* Right Side */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className={styles.right}
           >
             <p className={styles.lead}>

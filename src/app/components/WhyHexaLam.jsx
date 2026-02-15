@@ -4,33 +4,22 @@ import styles from "@/app/css/WhyHexalam.module.css";
 import { Sparkles, Droplets, SunMedium } from "lucide-react";
 import { motion } from "framer-motion";
 
-/* ================= MOTION VARIANTS ================= */
+/* ===== CLEAN MOTION VARIANTS ===== */
 
-const sectionVariants = {
+const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
       duration: 0.6,
       ease: "easeOut",
+      staggerChildren: 0.12,
     },
   },
 };
 
-const gridVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-  },
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -45,16 +34,15 @@ export default function WhyHexaLam() {
   return (
     <motion.section
       className={styles.section}
-      variants={sectionVariants}
+      variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-120px" }}
+      animate="visible"
     >
       <div className={styles.container}>
         {/* Header */}
         <motion.div
           className={styles.header}
-          variants={sectionVariants}
+          variants={itemVariants}
         >
           <span className={styles.kicker}>Engineering Excellence</span>
           <h2 className={styles.title}>Why HexaLam</h2>
@@ -65,10 +53,7 @@ export default function WhyHexaLam() {
         </motion.div>
 
         {/* Cards */}
-        <motion.div
-          className={styles.grid}
-          variants={gridVariants}
-        >
+        <div className={styles.grid}>
           <FeatureCard
             icon={<Sparkles size={26} />}
             title="High-Gloss Precision Finish"
@@ -86,20 +71,20 @@ export default function WhyHexaLam() {
             title="UV Colour Stability"
             desc="Advanced pigments maintain colour consistency even in sunlit interiors and long-term exposure."
           />
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );
 }
 
-/* ================= CARD ================= */
+/* ===== CARD ===== */
 
 function FeatureCard({ icon, title, desc }) {
   return (
     <motion.div
       className={styles.card}
-      variants={cardVariants}
-      whileHover={{ y: -6 }} // small assist, CSS still does main hover
+      variants={itemVariants}
+      whileHover={{ y: -6 }}
     >
       <div className={styles.iconWrap}>{icon}</div>
       <h3>{title}</h3>

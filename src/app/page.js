@@ -14,7 +14,7 @@ export default function HomePage(){
 <div style={{ 
         position: 'relative', 
         zIndex: 2, 
-        background: 'var(--bg-main)', /* Ensure this has a solid background to cover the hero */
+        background: 'var(--bg-main)', 
         // marginTop: '0' 
       }}>
     <WhyHexaLam/>

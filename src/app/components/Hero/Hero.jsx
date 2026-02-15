@@ -11,8 +11,8 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08, // Delay between each text element
-        delayChildren: 0.1,   // Initial delay before starting
+        staggerChildren: 0.08, 
+        delayChildren: 0.1,  
       },
     },
   };
