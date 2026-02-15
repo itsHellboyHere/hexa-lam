@@ -19,7 +19,7 @@ const SOCIALS = [
   },
   {
     name: "WhatsApp",
-    href: "https://wa.me/919876543210", // 🔴 change number
+    href: "https://wa.me/918527355536", 
     label: "WhatsApp",
     icon: <FaWhatsapp size={18} />,
   },

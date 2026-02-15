@@ -11,7 +11,7 @@ export default function Footer() {
         {/* Brand Section */}
         <div className={styles.brand}>
           <Link href="/">
-            <img src="/logo.png" alt="HexaLam" className={styles.logo} />
+            <img src="/logo.jpg" alt="HexaLam" className={styles.logo} />
           </Link>
 
           <p className={styles.tagline}>
@@ -41,13 +41,15 @@ export default function Footer() {
           <div>
             <h4>Reach Us</h4>
             <p className={styles.contactItem}>
-              <a href="mailto:info@trendpvc.com">info@trendpvc.com</a>
+              <a href="mailto:info@trendpvc.com">info@hexalam.com</a>
             </p>
             <p className={styles.contactItem}>
-              <a href="tel:+911140396922">+91-11 40396922</a>
+              <a href="tel:+98527355536">+918527355536</a>
             </p>
             <p className={styles.contactItem}>
-              Delhi NCR, India
+                 <strong>Address:</strong><br />
+              Head Office: 236, <br />
+              New Arya Nagar, Ghaziabad, UP
             </p>
           </div>
         </div>

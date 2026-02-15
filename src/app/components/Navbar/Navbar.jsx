@@ -20,7 +20,7 @@ export default function Navbar() {
       <header className={styles.navbar}>
         <div className={styles.inner}>
           <Link href="/">
-            <img src="/logo.png" alt="Hexa Lam" className={styles.logo} />
+            <img src="/logo.jpg" alt="Hexa Lam" className={styles.logo} />
           </Link>
 
           {/* Desktop Nav */}
