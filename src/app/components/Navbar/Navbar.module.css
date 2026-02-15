@@ -6,8 +6,6 @@
   width: 100%;
   height: var(--navbar-height);
   z-index: 100;
-
-  /* Switched to a cleaner white glass effect */
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-soft);
@@ -19,7 +17,6 @@
   height: 100%;
   margin: auto;
   padding: 0 24px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,7 +37,7 @@
 
 @keyframes gloss-sweep {
   0% { filter: brightness(1); }
-  50% { filter: brightness(1.15) contrast(1.05); } /* Slightly softened for white bg */
+  50% { filter: brightness(1.15) contrast(1.05); }
   100% { filter: brightness(1); }
 }
 
@@ -56,8 +53,6 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-
-  /* Using the new text-primary variable */
   color: var(--text-primary);
   background: none;
   border: none;
@@ -66,76 +61,58 @@
 }
 
 .link:hover {
-  /* Applying the new yellow color */
   color: var(--accent);
 }
 
-/* Desktop dropdown */
 .dropdownWrap {
   position: relative;
   margin-top: -2px;
 }
 
-/* Invisible hover bridge */
 .dropdownWrap::after {
   content: "";
   position: absolute;
   left: 0;
   top: 100%;
   width: 100%;
-  height: 18px; /* hover gap buffer */
+  height: 18px;
 }
 
 .dropdown {
   position: absolute;
   top: 140%;
   left: 0;
-
-  /* Solid white for dropdown depth */
   background: #ffffff; 
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-soft);
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
   min-width: 220px;
   padding: 8px 0;
-
   opacity: 0;
   pointer-events: none;
   transform: translateY(6px);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* Only hover on desktop */
-@media (hover: hover) {
-  .dropdownWrap:hover .dropdown {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-}
-
-/* @media (min-width: 1025px) and (hover: hover) {
+/* @media (hover: hover) {
   .dropdownWrap:hover .dropdown {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 } */
+
 .dropdown a {
   display: block;
   padding: 10px 18px;
-
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-
   color: var(--text-muted);
 }
 
 .dropdown a:hover {
-  /* Using the new yellow gradient for the text on hover */
   background: var(--bg-section);
   color: var(--accent);
 }
@@ -145,24 +122,21 @@
   display: none;
   background: none;
   border: none;
-  color: var(--text-primary); /* Changed from white to primary text */
+  color: var(--text-primary);
 }
 
-/* Mobile overlay (ABOVE navbar) */
 .mobileMenu {
   position: fixed;
   inset: 0;
-  z-index: 800;
-
-  background: var(--bg-main); /* Uses the white/off-white global background */
+  z-index: 1000; /* CHANGE: Increased z-index to stay above everything on iPad */
+  background: var(--bg-main);
   padding: 88px 24px;
-
   display: flex;
   flex-direction: column;
   gap: 22px;
-
   transform: translateX(100%);
   transition: transform 0.3s ease;
+  overflow-y: auto; /* CHANGE: Ensure menu is scrollable on small tablets */
 }
 
 .mobileMenu.open {
@@ -180,8 +154,6 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background: none;
-  border: none;
 }
 
 .mobileMenu a,
@@ -190,17 +162,25 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-
   color: var(--text-primary);
   background: none;
   border: none;
   text-align: left;
 }
 
+/* CHANGE: New Submenu styles for better visibility */
+.mobileSubMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 0 5px 16px;
+  border-left: 1px solid var(--border-soft);
+  margin-top: 10px;
+}
+
 .subLink {
-  padding-left: 16px;
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: 12px !important;
+  color: var(--text-muted) !important;
 }
 
 .chevron {
@@ -217,22 +197,45 @@
   justify-content: space-between;
 }
 
+
 .mobileChevron {
   background: none;
   border: none;
   color: var(--text-muted);
+  padding: 10px; 
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
 }
 
+.rotate {
+  transform: rotate(180deg);
+}
 
 /* Responsive*/
 @media (max-width: 1024px) {
-
   .navLinks {
     display: none;
   }
-
   .menuBtn {
     display: block;
   }
+}
+.showDropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Keep hover for real mouse devices only */
+@media (hover: hover) {
+  .dropdownWrap:hover .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
 }
