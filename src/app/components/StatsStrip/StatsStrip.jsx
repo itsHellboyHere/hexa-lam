@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./StatsStrip.module.css";
 
 const STATS = [
-  { label: "Surface Hardness", value: 6, suffix: "H" },
+  // { label: "Surface Hardness", value: 6, suffix: "H" },
   { label: "High Gloss Finish", value: 100, suffix: "%" },
   { label: "UV Colour Stability", value: 100, suffix: "%" },
   { label: "Daily Use Rated", value: 24, suffix: "×7" },

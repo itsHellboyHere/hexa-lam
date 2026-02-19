@@ -48,8 +48,7 @@ export default function Footer() {
             </p>
             <p className={styles.contactItem}>
                  <strong>Address:</strong><br />
-              Head Office: 236, <br />
-              New Arya Nagar, Ghaziabad, UP
+            Singapore
             </p>
           </div>
         </div>

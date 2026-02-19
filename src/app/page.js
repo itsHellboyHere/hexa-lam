@@ -21,7 +21,7 @@ export default function HomePage(){
     <StatsStrip/>
     <ProductHighlight/>
     <ApplicationsSticky/>
-    <HowItsMade/>
+    {/* <HowItsMade/> */}
     <PrimaryCTA/>
   </div>
     </>

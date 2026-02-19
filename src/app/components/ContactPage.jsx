@@ -128,7 +128,7 @@ export default function HexalamContact() {
             <div className={styles.specItem}>
               <ShieldCheck size={22} className={styles.icon} />
               <div>
-                <strong>8H Scratch Resistant Surface</strong>
+                <strong>6H Scratch Resistant Surface</strong>
                 <span>Industry-leading hardness certified</span>
               </div>
             </div>
@@ -153,8 +153,7 @@ export default function HexalamContact() {
             <div className={styles.detailItem}>
               <MapPin size={18} className={styles.icon} />
               <div><label>Location</label><span>
-              Head Office: 236, <br />
-              New Arya Nagar, Ghaziabad, UP</span></div>
+                Singapore</span></div>
             </div>
           </div>
 

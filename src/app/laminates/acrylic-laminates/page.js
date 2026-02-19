@@ -5,6 +5,11 @@ import AcrylicShadesGrid from "./components/AcrylicShadesGrid";
 import KeyStickyFeatures from "./components/AcyrlicKeyFeautres";
 // laminates/acrlyic-laminates/page.js
 
+export const metadata = {
+  title: "Acrylic Laminates Collection",
+  description:
+    "Explore Hexa Lam's complete collection of acrylic laminate surfaces.",
+};
 export default function AcrylicPage(){
     return(
         <>
