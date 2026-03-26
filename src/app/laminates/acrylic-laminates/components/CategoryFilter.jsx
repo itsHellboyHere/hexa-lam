@@ -1,14 +1,12 @@
 "use client";
-
 import { motion } from "framer-motion";
 import styles from "../css/CategoryFilter.module.css";
-
-const CATEGORIES = ["All", "ASA Sheet", "HD Acrylic", "Designer", "Mirror Glass"];
+import { SERIES_LIST } from "../data/AcyrlicData";
 
 export default function CategoryFilter({ activeCategory, onCategoryChange }) {
   return (
     <div className={styles.filterBar}>
-      {CATEGORIES.map((cat) => (
+      {SERIES_LIST.map((cat) => (
         <button
           key={cat}
           onClick={() => onCategoryChange(cat)}
@@ -16,8 +14,8 @@ export default function CategoryFilter({ activeCategory, onCategoryChange }) {
         >
           <span className={styles.btnText}>{cat}</span>
           {activeCategory === cat && (
-            <motion.div 
-              layoutId="activeHighlight" 
+            <motion.div
+              layoutId="activeHighlight"
               className={styles.activeHighlight}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
             />
