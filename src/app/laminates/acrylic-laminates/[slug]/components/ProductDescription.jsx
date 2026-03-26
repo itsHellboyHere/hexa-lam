@@ -115,10 +115,10 @@ export default function ProductDescription({ product }) {
                 Request Sample <ChevronRight size={16} />
               </Link>
 
-              <button className={styles.secondaryBtn}>
+              {/* <button className={styles.secondaryBtn}>
                 <FileText size={16} />
                 Technical Datasheet
-              </button>
+              </button> */}
             </div>
           </section>
         </div>
