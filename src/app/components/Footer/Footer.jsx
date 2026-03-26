@@ -15,7 +15,7 @@ export default function Footer() {
           </Link>
 
           <p className={styles.tagline}>
-            Redefining modern interiors through innovation, durability, and refined 8H anti-scratch acrylic technology.
+            Redefining modern interiors through innovation, durability, and refined 6H anti-scratch acrylic technology.
           </p>
 
           <SocialIcons />
