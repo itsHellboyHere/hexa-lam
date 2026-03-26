@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h4>Reach Us</h4>
             <p className={styles.contactItem}>
-              <a href="mailto:info@trendpvc.com">info@hexalam.com</a>
+              <a href="mailto:info@hexalam.com">info@hexalam.com</a>
             </p>
             <p className={styles.contactItem}>
               <a href="tel:+98527355536">+918527355536</a>
