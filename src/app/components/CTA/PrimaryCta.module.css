@@ -119,6 +119,29 @@
     inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
+/* NEW Download CTA */
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 34px;
+  border-radius: 14px;
+
+  /* Dark background to contrast with the light theme and primary button */
+  background: var(--text-primary, #111827); 
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  background: #000000;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
 /* Secondary CTA */
 .secondaryBtn {
   padding: 15px 34px;
@@ -149,7 +172,9 @@
     gap: 14px;
   }
 
+  /* Added .downloadBtn so it expands full width on mobile */
   .primaryBtn,
+  .downloadBtn,
   .secondaryBtn {
     width: 100%;
     text-align: center;
