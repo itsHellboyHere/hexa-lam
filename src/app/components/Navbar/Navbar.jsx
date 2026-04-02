@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
-import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
+import { FiMenu, FiX, FiChevronDown, FiDownload } from "react-icons/fi";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -11,29 +12,32 @@ export default function Navbar() {
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null);
+  const pathname = usePathname();
+
+  // Cloudinary Download URL
+  const catalogUrl =
+    "https://res.cloudinary.com/dgifa4wgb/image/upload/fl_attachment/v1774895977/Hexlam_Brochure_compressed_huxfsx_dnlto5.pdf";
+
+  // Returns styles.active if current path matches
+  const isActive = (href) => (pathname === href ? styles.active : "");
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
   // Close desktop dropdown on outside click
   useEffect(() => {
     function handleClickOutside(e) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDesktopDropdownOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Detect touch device
   const isTouch =
     typeof window !== "undefined" &&
     window.matchMedia("(hover: none)").matches;
@@ -44,16 +48,12 @@ export default function Navbar() {
       <header className={styles.navbar}>
         <div className={styles.inner}>
           <Link href="/">
-            <img
-              src="/logo.jpg"
-              alt="Hexa Lam"
-              className={styles.logo}
-            />
+            <img src="/logo.jpg" alt="Hexa Lam" className={styles.logo} />
           </Link>
 
           {/* Desktop Nav */}
           <nav className={styles.navLinks}>
-            <Link href="/" className={styles.link}>
+            <Link href="/" className={`${styles.link} ${isActive("/")}`}>
               Home
             </Link>
 
@@ -61,14 +61,14 @@ export default function Navbar() {
               ref={dropdownRef}
               className={styles.dropdownWrap}
               onClick={() => {
-                if (isTouch) {
-                  setDesktopDropdownOpen(!desktopDropdownOpen);
-                }
+                if (isTouch) setDesktopDropdownOpen(!desktopDropdownOpen);
               }}
             >
               <Link
                 href="/laminates"
-                className={styles.link}
+                className={`${styles.link} ${
+                  pathname.startsWith("/laminates") ? styles.active : ""
+                }`}
               >
                 Laminates
               </Link>
@@ -86,26 +86,39 @@ export default function Navbar() {
                   desktopDropdownOpen ? styles.showDropdown : ""
                 }`}
               >
-                <Link href="/laminates/acrylic-laminates">
+                <Link
+                  href="/laminates/acrylic-laminates"
+                  className={isActive("/laminates/acrylic-laminates")}
+                >
                   Acrylic Laminates
                 </Link>
               </div>
             </div>
 
-            <Link href="/about" className={styles.link}>
+            <Link href="/about" className={`${styles.link} ${isActive("/about")}`}>
               About
             </Link>
 
-            <Link href="/contact" className={styles.link}>
+            <Link href="/contact" className={`${styles.link} ${isActive("/contact")}`}>
               Contact
             </Link>
 
-            <Link href="/freq" className={styles.link}>
+            <Link href="/freq" className={`${styles.link} ${isActive("/freq")}`}>
               F & Q
             </Link>
+
+            {/* Desktop Download Button */}
+            <a
+              href={catalogUrl}
+              download="HexaLam_Catalog.pdf"
+              className={styles.downloadBtnDesktop}
+            >
+              <FiDownload size={14} style={{ marginRight: "6px" }} />
+              Download
+            </a>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile hamburger */}
           <button
             className={styles.menuBtn}
             onClick={() => setMenuOpen(true)}
@@ -117,11 +130,7 @@ export default function Navbar() {
       </header>
 
       {/* ===== MOBILE MENU OVERLAY ===== */}
-      <div
-        className={`${styles.mobileMenu} ${
-          menuOpen ? styles.open : ""
-        }`}
-      >
+      <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ""}`}>
         <button
           className={styles.closeBtn}
           onClick={() => setMenuOpen(false)}
@@ -130,10 +139,7 @@ export default function Navbar() {
           <FiX size={26} />
         </button>
 
-        <Link
-          href="/"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="/" className={isActive("/")} onClick={() => setMenuOpen(false)}>
           Home
         </Link>
 
@@ -141,6 +147,7 @@ export default function Navbar() {
           <div className={styles.mobileLaminates}>
             <Link
               href="/laminates"
+              className={pathname.startsWith("/laminates") ? styles.active : ""}
               onClick={() => setMenuOpen(false)}
             >
               Laminates
@@ -150,9 +157,7 @@ export default function Navbar() {
               className={`${styles.mobileChevron} ${
                 mobileDropdownOpen ? styles.rotate : ""
               }`}
-              onClick={() =>
-                setMobileDropdownOpen(!mobileDropdownOpen)
-              }
+              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
               aria-expanded={mobileDropdownOpen}
               aria-label="Toggle laminate types"
             >
@@ -164,7 +169,9 @@ export default function Navbar() {
             <div className={styles.mobileSubMenu}>
               <Link
                 href="/laminates/acrylic-laminates"
-                className={styles.subLink}
+                className={`${styles.subLink} ${isActive(
+                  "/laminates/acrylic-laminates"
+                )}`}
                 onClick={() => setMenuOpen(false)}
               >
                 Acrylic Laminates
@@ -173,26 +180,27 @@ export default function Navbar() {
           )}
         </div>
 
-        <Link
-          href="/about"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="/about" className={isActive("/about")} onClick={() => setMenuOpen(false)}>
           About
         </Link>
 
-        <Link
-          href="/contact"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="/contact" className={isActive("/contact")} onClick={() => setMenuOpen(false)}>
           Contact
         </Link>
 
-        <Link
-          href="/freq"
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link href="/freq" className={isActive("/freq")} onClick={() => setMenuOpen(false)}>
           F & Q
         </Link>
+
+        {/* Mobile Download Button — always last in flex column, never hidden */}
+        <a
+          href={catalogUrl}
+          download="HexaLam_Catalog.pdf"
+          className={styles.downloadBtnMobile}
+        >
+          <FiDownload size={18} style={{ marginRight: "8px" }} />
+          Download Catalog
+        </a>
       </div>
     </>
   );
