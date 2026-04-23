@@ -44,7 +44,7 @@ export default function Footer() {
               <a href="mailto:info@hexalam.com">info@hexalam.com</a>
             </p>
             <p className={styles.contactItem}>
-              <a href="tel:+98527355536">+918527355536</a>
+              <a href="tel:+918527355536">+918527355536</a>
             </p>
             <p className={styles.contactItem}>
                  <strong>Address:</strong><br />
